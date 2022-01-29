@@ -34,6 +34,8 @@
     border-radius: 50%;
     background-color: $c-light;
     border: 2px solid $c-light;
+    transition-property: border-color;
+    transition-duration: .3s;
     z-index: -1;
   }
 
@@ -168,6 +170,10 @@
   color: $c-light;
   border: 2px solid transparent;
   border-radius: 50%;
+  opacity: 0;
+  transform: translateY(30px);
+  transition-property: color, background-color, opacity, transform;
+  transition-duration: .3s;
 
   @media (min-width: $stop-scaling) {
     width: 40px;
@@ -202,11 +208,17 @@
     border-color: $c-light;
   }
 
+  .social-block--active & {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
   svg {
     @include center;
   }
 
   &--fb {
+
     svg {
       width: 0.8rem;
       height: 1.7rem;
@@ -219,6 +231,10 @@
   }
 
   &--insta {
+    .social-block--active & {
+      transition-delay: .1s
+    }
+
     svg {
       width: 1.5rem;
       height: 1.5rem;
@@ -231,6 +247,10 @@
   }
 
   &--vk {
+    .social-block--active & {
+      transition-delay: .2s
+    }
+
     svg {
       width: 1.7rem;
       height: 1rem;
