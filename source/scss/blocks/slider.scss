@@ -132,12 +132,19 @@
     transform: translateX(0);
     opacity: 1;
     transition-delay: .2s;
+    @media (max-width: $mobile) {
+      transition-delay: 0s;
+    }
   }
 
   .swiper-slide-next & {
     transform: translateX(0);
     opacity: 1;
     transition-delay: .5s;
+    @media (max-width: $mobile) {
+      transform: translateX(50px);
+      transition-delay: 0s;
+    }
   }
 }
 
