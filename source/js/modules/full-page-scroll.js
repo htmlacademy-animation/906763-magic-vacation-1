@@ -8,6 +8,7 @@ export default class FullPageScroll {
 
     this.screenElements = document.querySelectorAll(`.screen:not(.screen--result)`);
     this.menuElements = document.querySelectorAll(`.page-header__menu .js-menu-link`);
+    this.background = document.querySelector(`.background`);
 
     this.activeScreen = 0;
     this.onScrollHandler = this.onScroll.bind(this);
@@ -46,9 +47,23 @@ export default class FullPageScroll {
   }
 
   changePageDisplay() {
-    this.changeVisibilityDisplay();
+    this.toggleDisplay();
     this.changeActiveMenuItem();
     this.emitChangeDisplayEvent();
+  }
+  toggleDisplay() {
+    const activeScreen = this.screenElements[this.activeScreen];
+    const prevActiveScreen = document.querySelector(`.screen.active`) || this.screenElements[0];
+    if (activeScreen.id === `prizes` && prevActiveScreen.id === `story`) {
+      const that = this;
+      this.background.classList.add(`background--active`);
+      setTimeout(() => {
+        that.changeVisibilityDisplay();
+        that.background.classList.remove(`background--active`);
+      }, 600);
+    } else {
+      this.changeVisibilityDisplay();
+    }
   }
 
   changeVisibilityDisplay() {
