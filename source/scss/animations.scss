@@ -86,3 +86,22 @@
     transform: translateY(0);
   }
 }
+
+.background {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  visibility: hidden;
+  background-color: #5f458c;
+  transform: translateY(100%);
+  transition: transform;
+  transition-duration: 0.6s;
+}
+
+.background--active {
+  transform: translateY(0);
+  visibility: visible;
+}
