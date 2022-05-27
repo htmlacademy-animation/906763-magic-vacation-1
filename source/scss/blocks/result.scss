@@ -46,6 +46,7 @@
   }
 
   img {
+    position: absolute;
     display: block;
     width: 100%;
     height: 100%;
@@ -266,5 +267,228 @@
     @media (max-width: $mobile) and (orientation: landscape) {
       width: 45rem;
     }
+  }
+}
+
+img.result__flamingo {
+  z-index: 5;
+  max-width: 350px;
+  height: auto;
+  left: calc(50% - 300px);
+  bottom: -100px;
+  animation-name: show-flamingo, move-flamingo;
+  animation-duration: 0.3s, 1.5s;
+  animation-fill-mode: both, forwards;
+  animation-timing-function: ease-in-out, ease-in-out;
+  animation-delay: 1s, 1.4s;
+  animation-iteration-count: 1, infinite;
+  animation-direction: normal, alternate;
+}
+
+img.result__suitcase {
+  z-index: 4;
+  max-width: 420px;
+  height: auto;
+  left: calc(50% - 260px);
+  bottom: -100px;
+}
+
+img.result__leaf-blue-2 {
+  z-index: 3;
+  max-width: 380px;
+  height: auto;
+  bottom: 150px;
+  left: calc(50% - 440px);
+}
+
+img.result__leaf-blue-1 {
+  z-index: 3;
+  max-width: 380px;
+  height: auto;
+  bottom: 210px;
+  left: calc(50% + 10px);
+}
+
+img.result__leaf-green {
+  z-index: 3;
+  max-width: 420px;
+  height: auto;
+  bottom: 210px;
+  left: calc(50% - 30px);
+}
+
+.screen--result.screen--show {
+  img.result__flamingo {
+    animation-name: show-flamingo, move-flamingo;
+    animation-duration: 1.5s, 1.5s;
+    animation-fill-mode: forwards, forwards;
+    animation-timing-function: ease-in-out, ease-in-out;
+    animation-delay: 0s, 2s;
+    animation-iteration-count: 1, infinite;
+    animation-direction: normal, alternate;
+  }
+
+  img.result__suitcase {
+    animation-name: show-suitcase;
+    animation-duration: 1.5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+    animation-delay: 0s;
+  }
+
+  img.result__leaf-blue-2 {
+    animation-name: show-leaf-2;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+    animation-delay: 0s;
+  }
+
+  img.result__leaf-blue-1 {
+    animation-name: show-leaf-1;
+    animation-duration: 1.8s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+    animation-delay: 0s;
+  }
+
+  img.result__leaf-green {
+    animation-name: show-green;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+    animation-delay: 0s;
+  }
+}
+
+@keyframes show-flamingo {
+  0% {
+    opacity: 0;
+    transform: rotate(-30deg) translateY(200px) scale(0);
+  }
+  100% {
+    opacity: 1;
+    transform: rotate(0) translateY(-250px) scale(1);
+  }
+}
+
+@keyframes move-flamingo {
+  from {
+    transform: rotate(0) translate3d(0, -250px, 0);
+  }
+
+  to {
+    transform: rotate(-4deg) translate3d(-2px, -210px, 2px);
+  }
+}
+
+@keyframes show-suitcase {
+  0% {
+    transform: translateY(200px) scale(0);
+  }
+
+  70% {
+    transform: translateY(-300px) scale(1.6);
+  }
+
+  100% {
+    transform: translateY(-250px) scale(1);
+  }
+}
+
+@keyframes show-leaf-2 {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+    transform: rotate(25deg);
+  }
+
+  60% {
+    transform: rotate(-20deg);
+  }
+
+  70% {
+    transform: rotate(15deg);
+  }
+
+  80% {
+    opacity: 1;
+    transform: rotate(-10deg);
+  }
+
+  90% {
+    transform: rotate(5deg);
+  }
+
+  100% {
+    transform: none;
+  }
+}
+
+@keyframes show-leaf-1 {
+  10% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+    transform: rotate(-20deg);
+  }
+
+  60% {
+    transform: rotate(20deg);
+  }
+
+  70% {
+    transform: rotate(-15deg);
+  }
+
+  80% {
+    opacity: 1;
+    transform: rotate(10deg);
+  }
+
+  90% {
+    transform: rotate(-5deg);
+  }
+
+  100% {
+    transform: none;
+  }
+}
+
+@keyframes show-green {
+  0% {
+    opacity: 0;
+  }
+
+  40% {
+    opacity: 0;
+    transform: rotate(-15deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+
+  60% {
+    transform: rotate(-5deg);
+  }
+
+  70% {
+    opacity: 1;
+    transform: rotate(5deg);
+  }
+
+  80% {
+    transform: rotate(-2deg);
+  }
+
+  90% {
+    transform: rotate(2deg);
+  }
+
+  100% {
+    transform: none;
   }
 }
