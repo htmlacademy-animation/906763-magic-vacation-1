@@ -48,7 +48,7 @@
   transition-property: width, opacity;
   transition-duration: .5s, 0.2s;
 
-  .screen.active & {
+  .screen--game.active & {
     width: calc(100% - 21rem);
     opacity: 1;
 
@@ -57,6 +57,27 @@
     }
 
     @media (max-width: $mobile) {
+      width: calc(100% - 5rem);
+    }
+  }
+
+  .screen--result.screen--show & {
+    opacity: 1;
+    width: calc(100% - 31rem);
+
+    @media (min-width: $stop-scaling) {
+      width: calc(100% - 310px);
+    }
+
+    @media (orientation: portrait) {
+      width: calc(100% - 5rem);
+    }
+
+    @media (max-width: $tablet) and (orientation: landscape) {
+      width: calc(100% - 9rem);
+    }
+
+    @media (max-width: $mobile) and (orientation: landscape) {
       width: calc(100% - 5rem);
     }
   }
@@ -95,6 +116,11 @@
 
 .form__button {
   flex-grow: 0;
+  animation-name: showFormButton;
+  animation-duration: .8s;
+  animation-delay: 0s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
 
   @media (orientation: portrait) {
     position: relative;
@@ -142,7 +168,13 @@
 
 .form--result {
   .form__field {
+    animation-name: showFormInput;
+    animation-duration: 1s;
+    animation-delay: 0s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
     width: calc(100% - 31rem);
+    transform-origin: right;
 
     @media (min-width: $stop-scaling) {
       width: calc(100% - 310px);
@@ -159,5 +191,37 @@
     @media (max-width: $mobile) and (orientation: landscape) {
       width: calc(100% - 5rem);
     }
+  }
+}
+
+@keyframes showFormButton {
+  0%{
+    opacity: 0;
+    color: transparent;
+  }
+
+  50% {
+    opacity: 1;
+    color: transparent;
+   }
+
+  100% {
+    color: $c-purple
+  }
+}
+
+@keyframes showFormInput {
+  0%{
+    opacity: 0;
+    transform: scaleX(0);
+  }
+
+  50%{
+    opacity: 1;
+    transform: scaleX(0);
+  }
+
+  100% {
+    transform: scaleX(1);
   }
 }

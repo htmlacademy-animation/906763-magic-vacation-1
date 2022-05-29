@@ -186,3 +186,22 @@
   }
 }
 
+.text__word {
+  display: inline-block;
+  padding: 5px 0 0;
+  overflow: hidden;
+
+  & > span {
+    display: inline-block;
+    transform: translate3d(0, 1.5em, 0);
+  }
+}
+
+.screen.active .text__word > span {
+  transform: translate3d(0, 0, 0);
+}
+
+.intro__title > .text__word {
+  letter-spacing: -0.05em;
+}
+
